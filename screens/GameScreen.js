@@ -26,9 +26,9 @@ function GameScreen(props) {
     if (currentGuess === props.userNumber) {
       props.onGameOver();
     }
-  }, [currentGuess, props.userNumber,props.onGameOver]);
+  }, [currentGuess, props.userNumber, props.onGameOver]);
   function nextGuessHandler(direction) {
-    if((direction === 'lower' && currentGuess < props.userNumber) || (direction === 'greater' && currentGuess > props.userNumber)){
+    if ((direction === 'lower' && currentGuess < props.userNumber) || (direction === 'greater' && currentGuess > props.userNumber)) {
       Alert.alert('Don\'t lie!', 'You know that this is wrong...', [{ text: 'Sorry!', style: 'cancel' }]);
       return;
     }
@@ -48,10 +48,14 @@ function GameScreen(props) {
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
-        <InstructionText>Higher Or Lower</InstructionText>
-        <View >
-          <PrimaryButton onPress={nextGuessHandler.bind(this,'lower')}>-</PrimaryButton>
-          <PrimaryButton onPress={ nextGuessHandler.bind(this,'greater')}>+</PrimaryButton>
+        <InstructionText style={styles.instructionText}>Higher Or Lower</InstructionText>
+        <View style={styles.buttonsContainer} >
+          <View style={styles.buttonContainer}>
+<PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>-</PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>+</PrimaryButton>
+          </View>
         </View>
       </Card>
       {/* <View>LOG ROUNDS</View> */}
@@ -64,5 +68,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 12,
   },
+  instructionText:{
+    marginBottom : 24,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+  },
+  buttonContainer: {
+    flex: 1,
+  }
 
 });
