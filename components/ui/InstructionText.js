@@ -11,8 +11,8 @@ export default InstructionText;
 const styles = StyleSheet.create({
     textInstruction: {
         fontSize: 18,
+        fontFamily: 'open-sans',
         color: colors.secondary,
-        fontWeight: 'bold',
         marginBottom: 12,
     },
 });
