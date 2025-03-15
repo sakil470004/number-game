@@ -4,17 +4,17 @@ import colors from "../constants/colors";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
 function GameOverScreen() {
-    return(
-    <View style={styles.screen}>
-        <Title style={styles.text}>Game Over!</Title>
-        
-        <View style={styles.imageContainer}>
+    return (
+        <View style={styles.screen}>
+            <Title style={styles.text}>Game Over!</Title>
 
-        <Image style={styles.image} source={require('../assets/images/success.png')} />
+            <View style={styles.imageContainer}>
+
+                <Image style={styles.image} source={require('../assets/images/success.png')} />
+            </View>
+            <Text style={styles.summeryText}>Your Phone Needed <Text style={styles.highlight}>X</Text> round to guess the Number <Text style={styles.highlight}>Y</Text></Text>
+            <PrimaryButton onPress={() => { }}>New Game</PrimaryButton>
         </View>
-        <Text style={styles.summeryText}>Your Phone Needed <Text style={styles.highlight}>X</Text> round to guess the Number <Text style={styles.highlight}>Y</Text></Text>
-        <PrimaryButton onPress={() => {}}>New Game</PrimaryButton>
-    </View>
     );
 }
 export default GameOverScreen;
@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     imageContainer: {
-    width: 300,
-    height: 300,
-    borderRadius: 150,
-    borderWidth: 3,
-    borderColor: colors.steelBlue,
-    overflow: 'hidden',
-    margin:36,
+        width: 300,
+        height: 300,
+        borderRadius: 150,
+        borderWidth: 3,
+        borderColor: colors.steelBlue,
+        overflow: 'hidden',
+        margin: 36,
 
     },
     image: {
