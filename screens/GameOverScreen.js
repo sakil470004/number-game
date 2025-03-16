@@ -3,6 +3,10 @@ import Title from "../components/ui/Title";
 import colors from "../constants/colors";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
+
+
+
+
 function GameOverScreen() {
     return (
         <View style={styles.screen}>
