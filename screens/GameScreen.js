@@ -26,7 +26,7 @@ function GameScreen(props) {
 
   useEffect(() => {
     if (currentGuess === props.userNumber) {
-      props.onGameOver();
+      props.onGameOver(guessRounds.length);
     }
   }, [currentGuess, props.userNumber, props.onGameOver]);
   useEffect(() => {
@@ -70,7 +70,7 @@ function GameScreen(props) {
         </View>
       </Card>
       {/* <View>LOG ROUNDS</View> */}
-      <View>
+      <View style={{ flex: 1, marginTop: 12 }}>
         {/* {guessRounds.map((guess, index) => (
           <Text key={guess} style={{ textAlign: 'center' }}>{index + 1}. {guess}</Text>
         ))} */}
