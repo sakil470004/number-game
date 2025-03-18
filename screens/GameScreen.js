@@ -76,7 +76,7 @@ function GameScreen(props) {
         ))} */}
         <FlatList data={guessRounds} keyExtractor={item => item.toString()} renderItem={({ item, index }) => (
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 8 ,borderBottomColor: 'black', borderBottomWidth: 1 ,padding: 8,marginHorizontal: 8}}>
-            <Text style={{ textAlign: 'center' }}>{index + 1}.</Text>
+            <Text style={{ textAlign: 'center' }}>#{ guessRounds.length-index}.</Text>
             <Text style={{ textAlign: 'center' }}>{item}</Text>
           </View>
         )} />
