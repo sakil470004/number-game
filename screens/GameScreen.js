@@ -1,4 +1,4 @@
-import { Alert, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, Dimensions, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import Title from "../components/ui/Title";
 import { useEffect, useState } from "react";
 import NumberContainer from "../components/game/NumberContainer";
@@ -85,13 +85,14 @@ function GameScreen(props) {
   );
 }
 export default GameScreen;
+const deviceWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 12,
   },
   instructionText: {
-    marginBottom: 24,
+    marginBottom: deviceWidth < 380 ? 12 : 24,
   },
   buttonsContainer: {
     flexDirection: 'row',
