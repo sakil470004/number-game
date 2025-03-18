@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { Alert, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import Title from "../components/ui/Title";
 import { useEffect, useState } from "react";
 import NumberContainer from "../components/game/NumberContainer";
@@ -22,6 +22,7 @@ function GameScreen(props) {
 
   const initialGuess = generateRandomBetween(1, 100, props.userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
   useEffect(() => {
     if (currentGuess === props.userNumber) {
@@ -46,6 +47,7 @@ function GameScreen(props) {
     }
     let newRndNumber = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
     setCurrentGuess(newRndNumber);
+    setGuessRounds((prevGuessRounds) => [newRndNumber, ...prevGuessRounds]);
   }
 
   return (
@@ -68,6 +70,17 @@ function GameScreen(props) {
         </View>
       </Card>
       {/* <View>LOG ROUNDS</View> */}
+      <View>
+        {/* {guessRounds.map((guess, index) => (
+          <Text key={guess} style={{ textAlign: 'center' }}>{index + 1}. {guess}</Text>
+        ))} */}
+        <FlatList data={guessRounds} keyExtractor={item => item.toString()} renderItem={({ item, index }) => (
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 8 ,borderBottomColor: 'black', borderBottomWidth: 1 ,padding: 8,marginHorizontal: 8}}>
+            <Text style={{ textAlign: 'center' }}>{index + 1}.</Text>
+            <Text style={{ textAlign: 'center' }}>{item}</Text>
+          </View>
+        )} />
+      </View>
     </View>
   );
 }
